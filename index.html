@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--
+    Michael Hoekstra - Monster Hunter ©2019
+    Please do not copy or reproduce this code
+    Enjoy this little side project I've been working on
+    Thanks :)
+    Note: Mostly functional but still more work to be done
+
+    To Do:
+    Inventory
+    - Fix Arrangement
+    - Add Items
+    + Implement Items in Combat
+    Sell
+    + Selling doesnt decrease num of objects in array
+    + Selling doesn't make it disapear in inventory
+    Items
+    - Add Extra Health and Mana and Make Costs Scale (Costs Scale? Mike what was that?)
+    ~ Add Mana Potion Functionality (I think they work)
+    Magic
+    ~ Add Mana (Added Loose Level Scaling)
+    ` Add Spells (Spells work)
+    ! Should Spells cost something other than gold? Maybe Levels?
+    ~ Added status? (Added and Semi-Implemented)
+    ~ Magics wont load (Fixed)
+    Monster drops
+    Special monsters
+    Balance Lv up
+    - Add in chance chart stuff
+    Balance Armor
+    Add Comments & Documentation (Semi-Started)
+    + Centered Most Buttons
+    Add in where buttons are disabled if already owned or not enough gold or not enough space.
+    + Reset game doesn't work (Fixed)
+
+
+    Controls:
+    Ok      - KeyA/Enter
+    Attack  - KeyA/Enter
+    Defend  - KeyD
+    Counter - KeyC
+    Inventory/Items - KeyE
+    Shop - KeyS
+    Spells/Magic Inventory - KeyQ
+
+    -->
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="game.js"></script>
+    <title>Monster Hunter</title>
+</head>
+<body id="allcontent">
+    <div class="start" id="start">
+        <div class="header">
+            Monster Hunter
+        </div>
+        <br>Become a monster hunter as you slay your way through fields and dungeons.<br><br>
+        <button id="btnstart" onclick="StartGame()">
+            Start
+        </button>
+    </div>
+    <div class="maingame" id="maingame">
+        <div class="menu" id="menu">
+            <p id="menustatus">
+                You are on Round 1
+                You are Level 1
+                You have 0 gold
+            </p>
+            <button onclick="StartNextRound()">Next Round</button>
+            <button onclick="LoadInventory()">Inventory</button>
+            <button onclick="ShowShop()">Shop</button>
+            <button onclick="OpenMagic()">Magic</button>
+            <button>Help</button>
+        </div>
+        <div class="fighting" id="fighting">
+            <div id="playerbar">
+                <div id="playerhealth">100%</div>
+            </div>
+            <div id="monsterbar">
+                <div id="monsterhealth">100%</div>
+            </div>
+            <div id="manabar">
+                <div id="manacapacity">20MP</div>
+            </div>
+            <br><br><br><br>
+            <div id=intro>Intro</div>
+            <div id=monsterinfo></div>
+            <div id="fightinfo"></div>
+            <div class="center">
+                <button onclick="Attack('Attack')">Attack</button>
+                <button onclick="Attack('Defend')">Defend</button>
+                <button onclick="Attack('Counter')">Counter</button>
+                <button onclick="OpenSpellInventory()">Magic</button>
+                <button onclick="OpenAttackInventory()">Item</button>
+            </div>
+
+        </div>
+        <div id="fightinventory">
+
+        </div>
+        <div class="center">
+            <div id="attackspells">
+
+            </div>
+        </div>
+        <div class="resolution" id="resolution">
+            <div id="resolutiontext">
+
+            </div>
+            <div class="center">
+                <button id="btnresolution" onclick="BackToMenu()">Ok</button>
+            </div>
+        </div>
+        <div class="center">
+            <div class="inventory" id="inventory">
+
+            </div>
+        </div>
+        <div class="shop" id="shop">
+            <div class="shopmenu" id="shopmenu">
+                <div class="center">
+                    <p>
+                        Welcome to the Shop<br>
+                        What would you like to do?
+                    </p>
+                    <button onclick="LoadBuying()">Buy</button>
+                    <button onclick="LoadSelling()">Sell</button>
+                    <button onclick="BackToMenu()">Exit</button>
+                </div>
+            </div>
+            <div class="center">
+                <div class="buy" id="buy">
+                    
+                    <!--
+                    <button onlick="Buy('Wooden Sword')">Wooden Sword<br>50 Gold</button>
+                    -->
+                </div> 
+                <div class="sell" id="sell">
+                    <div class="sellinv"></div>
+                </div>
+                <div class="transaction" id="transaction">
+                    <!--
+                    <p>
+                        You bought a _____ for ___ gold<br>
+                        Do you want to equip it now
+                    </p>
+                    -->
+                </div>
+            </div>
+        </div>
+        <div class="center">
+            <div class="magic" id="magic">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
