@@ -115,9 +115,9 @@ var pUseSpell = {};
 
 //#region Game Setup
 // Define all weapons and armor
-var Weapons = [{ name: "Wooden Sword", type: "Two-Handed", damage: 2, speed: 1, enchantment: "none", modifier: "none", durability: 100, cost: 50 },
-{ name: "Broken Sword", type: "Two-Handed", damage: 2, enchantment: "none", speed: 1, modifier: "none", durability: 100, cost: 100 },
-{ name: "Rusty Sword", type: "Two-Handed", damage: 3, enchantment: "none", speed: 1, modifier: "none", durability: 100, cost: 150 }];
+var Weapons = [{ name: "Wooden Sword", type: "Two-Handed", damage: 2, speed: 2, enchantment: "none", modifier: "none", durability: 100, cost: 50 },
+{ name: "Broken Sword", type: "Two-Handed", damage: 3, enchantment: "none", speed: 3, modifier: "none", durability: 100, cost: 100 },
+{ name: "Rusty Sword", type: "Two-Handed", damage: 4, enchantment: "none", speed: 1, modifier: "none", durability: 100, cost: 150 }];
 
 var Armor = [{ name: "Leather Armor", weight: "None", defense: 2, enchantment: "none", modifier: "none", durability: 100, cost: 300 },
 { name: "Hardened Leather Armor", weight: "Light", defense: 3, enchantment: "none", modifier: "none", durability: 100, cost: 500 },
@@ -125,7 +125,7 @@ var Armor = [{ name: "Leather Armor", weight: "None", defense: 2, enchantment: "
 
 // Define Magic, Status effects, and items
 var Magic = [{ name: "Flame Shot", type: "status", damage: 5, statusEffect: "Burned", manaCost: 5, cost:150, desc:"Has a chance to burn the enemy it hits.", effectChance: 5 },
-{ name: "Zap Bolt", type: "damage", damage: 50, statusEffect: "none", manaCost: 10, cost:350, desc:"Zaps enemies for significant damage.", effectChance: 0 },
+{ name: "Zap Bolt", type: "damage", damage: 40, statusEffect: "none", manaCost: 10, cost:300, desc:"Zaps enemies for significant damage.", effectChance: 0 },
 { name: "Healing Ring", type: "heal", heal: 100, statusEffect: "none", manaCost: 15, cost:750, desc:"Heals a significant amount of damage.", effectChance: 0 },
 { name: "Death Curse", type: "damage", damage: 100000, statusEffect: "none", manaCost: 50, cost:1000, desc:"Instantly kills any enemy.", effectChance: 0 }];
 
@@ -143,20 +143,20 @@ var Items = [{ name: "Small Health Potion", cost: 20, heal: 15, type: "heal", en
 
 
 // Define all Monsters
-var Monsters = [{ name: "Slime", baseHealth: 20, maxHealth: 20, health: 20, baseStrength: 1, strength: 1, baseSpeed: 1, speed: 1, drop: "", itemChance: 0, goldDrop: 10, minRecLevel: 1, nature: "none", special: false, specialChance: 25, hitEffect: "none", effectChance: 0 },
-{ name: "Goblin", baseHealth: 35, maxHealth: 35, health: 35, baseStrength: 2, strength: 2, baseSpeed: 3, speed: 3, drop: "", itemChance: 0, goldDrop: 25, minRecLevel: 2, nature: "none", special: false, specialChance: 20, hitEffect: "none", effectChance: 0 },
-{ name: "Zombie", baseHealth: 45, maxHealth: 45, health: 45, baseStrength: 4, strength: 4, baseSpeed: 1, speed: 1, drop: "", itemChance: 0, goldDrop: 30, minRecLevel: 3, nature: "none", special: false, specialChance: 15, hitEffect: "none", effectChance: 0 },
-{ name: "Skeleton Archer", baseHealth: 50, maxHealth: 50, health: 50, baseStrength: 4, strength: 4, baseSpeed: 5, speed: 5, drop: "", itemChance: 0, goldDrop: 35, minRecLevel: 4, nature: "none", special: false, specialChance: 12, hitEffect: "none", effectChance: 0 },
-{ name: "Skeleton Warrior", baseHealth: 60, maxHealth: 60, health: 60, baseStrength: 6, strength: 6, baseSpeed: 2, speed: 2, drop: "", itemChance: 0, goldDrop: 40, minRecLevel: 5, nature: "none", special: false, specialChance: 10, hitEffect: "none", effectChance: 0 },
-{ name: "Giant Spider", baseHealth: 65, maxHealth: 65, health: 65, baseStrength: 5, strength: 5, baseSpeed: 8, speed: 8, drop: "", itemChance: 0, goldDrop: 55, minRecLevel: 6, nature: "none", special: false, specialChance: 8, hitEffect: "Poisoned", effectChance: 2},
-{ name: "Ogre", baseHealth: 80, maxHealth: 80, health: 80, baseStrength: 8, strength: 8, baseSpeed: 3, speed: 3, drop: "", itemChance: 0, goldDrop: 65, minRecLevel: 7, nature: "none", special: false, specialChance: 7, hitEffect: "none", effectChance: 0 },
-{ name: "Pack of Wolves", baseHealth: 85, maxHealth: 85, health: 85, baseStrength: 8, strength: 8, baseSpeed: 10, speed: 10, drop: "", itemChance: 0, goldDrop: 80, minRecLevel: 8, nature: "none", special: false, specialChance: 6, hitEffect: "none", effectChance: 0 },
-{ name: "Shadow Knight", baseHealth: 95, maxHealth: 95, health: 95, baseStrength: 12, strength: 12, baseSpeed: 5, speed: 5, drop: "", itemChance: 0, goldDrop: 100, minRecLevel: 9, nature: "none", special: false, specialChance: 5, hitEffect: "none", effectChance: 0 },
-{ name: "Shadow Assassin", baseHealth: 105, maxHealth: 100, health: 100, baseStrength: 10, strength: 10, baseSpeed: 10, speed: 10, drop: "", itemChance: 0, goldDrop: 120, minRecLevel: 10, nature: "none", special: false, specialChance: 4, hitEffect: "none", effectChance: 0 },
-{ name: "Shadow Leader", baseHealth: 150, maxHealth: 150, health: 150, baseStrength: 15, strength: 15, baseSpeed: 8, speed: 8, drop: "", itemChance: 0, goldDrop: 150, minRecLevel: 11, nature: "none", special: false, specialChance: 3, hitEffect: "none", effectChance: 0 },
-{ name: "Demon", baseHealth: 300, maxHealth: 300, health: 300, baseStrength: 20, strength: 20, baseSpeed: 15, speed: 15, drop: "", itemChance: 0, goldDrop: 250, minRecLevel: 100, nature: "none", special: false, specialChance: 2, hitEffect: "none", effectChance: 0 },
-{ name: "Dragon", baseHealth: 500, maxHealth: 500, health: 500, baseStrength: 30, strength: 30, baseSpeed: 20, speed: 20, drop: "", itemChance: 0, goldDrop: 400, minRecLevel: 200, nature: "none", special: false, specialChance: 1, hitEffect: "none", effectChance: 0 },
-{ name: "Titan", baseHealth: 1000, maxHealth: 1000, health: 1000, baseStrength: 50, strength: 50, baseSpeed: 10, speed: 10, drop: "", itemChance: 0, goldDrop: 750, minRecLevel: 300, nature: "none", special: false, specialChance: 1, hitEffect: "none", effectChance: 0 }];
+var Monsters = [{ name: "Slime", baseHealth: 20, maxHealth: 20, health: 20, baseStrength: 1, strength: 1, baseSpeed: 1, speed: 1, drop: "", itemChance: 0, goldDrop: 10, minRecLevel: 1, nature: "none", specialChance: 25, hitEffect: "none", effectChance: 0 },
+{ name: "Goblin", baseHealth: 35, maxHealth: 35, health: 35, baseStrength: 2, strength: 2, baseSpeed: 3, speed: 3, drop: "", itemChance: 0, goldDrop: 25, minRecLevel: 2, nature: "none", specialChance: 20, hitEffect: "none", effectChance: 0 },
+{ name: "Zombie", baseHealth: 45, maxHealth: 45, health: 45, baseStrength: 4, strength: 4, baseSpeed: 1, speed: 1, drop: "", itemChance: 0, goldDrop: 30, minRecLevel: 3, nature: "none", specialChance: 15, hitEffect: "none", effectChance: 0 },
+{ name: "Skeleton Archer", baseHealth: 50, maxHealth: 50, health: 50, baseStrength: 4, strength: 4, baseSpeed: 5, speed: 5, drop: "", itemChance: 0, goldDrop: 35, minRecLevel: 4, nature: "none", specialChance: 12, hitEffect: "none", effectChance: 0 },
+{ name: "Skeleton Warrior", baseHealth: 60, maxHealth: 60, health: 60, baseStrength: 6, strength: 6, baseSpeed: 2, speed: 2, drop: "", itemChance: 0, goldDrop: 45, minRecLevel: 5, nature: "none", specialChance: 10, hitEffect: "none", effectChance: 0 },
+{ name: "Giant Spider", baseHealth: 65, maxHealth: 65, health: 65, baseStrength: 5, strength: 5, baseSpeed: 8, speed: 8, drop: "", itemChance: 0, goldDrop: 55, minRecLevel: 6, nature: "none", specialChance: 8, hitEffect: "Poisoned", effectChance: 2},
+{ name: "Ogre", baseHealth: 80, maxHealth: 80, health: 80, baseStrength: 8, strength: 8, baseSpeed: 3, speed: 3, drop: "", itemChance: 0, goldDrop: 65, minRecLevel: 7, nature: "none", specialChance: 7, hitEffect: "none", effectChance: 0 },
+{ name: "Pack of Wolves", baseHealth: 85, maxHealth: 85, health: 85, baseStrength: 8, strength: 8, baseSpeed: 10, speed: 10, drop: "", itemChance: 0, goldDrop: 80, minRecLevel: 8, nature: "none", specialChance: 6, hitEffect: "none", effectChance: 0 },
+{ name: "Shadow Knight", baseHealth: 95, maxHealth: 95, health: 95, baseStrength: 12, strength: 12, baseSpeed: 5, speed: 5, drop: "", itemChance: 0, goldDrop: 100, minRecLevel: 9, nature: "none", specialChance: 5, hitEffect: "none", effectChance: 0 },
+{ name: "Shadow Assassin", baseHealth: 105, maxHealth: 100, health: 100, baseStrength: 10, strength: 10, baseSpeed: 10, speed: 10, drop: "", itemChance: 0, goldDrop: 120, minRecLevel: 10, nature: "none", specialChance: 4, hitEffect: "none", effectChance: 0 },
+{ name: "Shadow Leader", baseHealth: 150, maxHealth: 150, health: 150, baseStrength: 15, strength: 15, baseSpeed: 8, speed: 8, drop: "", itemChance: 0, goldDrop: 150, minRecLevel: 11, nature: "none", specialChance: 3, hitEffect: "none", effectChance: 0 },
+{ name: "Demon", baseHealth: 300, maxHealth: 300, health: 300, baseStrength: 20, strength: 20, baseSpeed: 15, speed: 15, drop: "", itemChance: 0, goldDrop: 250, minRecLevel: 100, nature: "none", specialChance: 2, hitEffect: "none", effectChance: 0 },
+{ name: "Dragon", baseHealth: 500, maxHealth: 500, health: 500, baseStrength: 30, strength: 30, baseSpeed: 20, speed: 20, drop: "", itemChance: 0, goldDrop: 400, minRecLevel: 200, nature: "none", specialChance: 1, hitEffect: "none", effectChance: 0 },
+{ name: "Titan", baseHealth: 1000, maxHealth: 1000, health: 1000, baseStrength: 50, strength: 50, baseSpeed: 10, speed: 10, drop: "", itemChance: 0, goldDrop: 750, minRecLevel: 300, nature: "none", specialChance: 1, hitEffect: "none", effectChance: 0 }];
 
 var MonsterDrops = [{}];
 
