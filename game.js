@@ -207,6 +207,28 @@ function HideElementByID(ID) {
     onMenu = false;
 }
 
+/**
+ * Shows help
+ */
+function ShowHelp()
+{
+    HideElementByID("menu");
+    ShowElementByID("help");
+
+    onMenu = false;
+}
+
+/**
+ * Hides help
+ */
+ function HideHelp()
+ {
+     HideElementByID("help");
+     ShowElementByID("menu");
+ 
+     onMenu = true;
+ }
+
 //#endregion
 
 

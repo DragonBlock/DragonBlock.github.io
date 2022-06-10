@@ -29,6 +29,10 @@ button {
 
 }*/
 
+.help {
+    display: none;
+}
+
 .shop {
     display: none;
 }
