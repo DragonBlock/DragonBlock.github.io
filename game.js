@@ -127,7 +127,7 @@ var Armor = [{ name: "Leather Armor", weight: "None", defense: 2, enchantment: "
 var Magic = [{ name: "Flame Shot", type: "status", damage: 5, statusEffect: "Burned", manaCost: 5, cost:150, desc:"Has a chance to burn the enemy it hits.", effectChance: 5 },
 { name: "Zap Bolt", type: "damage", damage: 40, statusEffect: "none", manaCost: 10, cost:300, desc:"Zaps enemies for significant damage.", effectChance: 0 },
 { name: "Healing Ring", type: "heal", heal: 100, statusEffect: "none", manaCost: 15, cost:750, desc:"Heals a significant amount of damage.", effectChance: 0 },
-{ name: "Death Curse", type: "damage", damage: 100000, statusEffect: "none", manaCost: 50, cost:1000, desc:"Instantly kills any enemy.", effectChance: 0 }];
+{ name: "Instant Death", type: "damage", damage: 100000, statusEffect: "none", manaCost: 50, cost:1000, desc:"Instantly kills any enemy.", effectChance: 0 }];
 
 // Ideas only
 // var statusEffects = [{ name: "Burned", damage:"1/16" }, { name: "Poisoned", damage:"1/8" }];
@@ -138,7 +138,7 @@ var Items = [{ name: "Small Health Potion", cost: 20, heal: 15, type: "heal", en
 {name:"Health Crystal", cost:150, health:10, type:"health", enchantment:"none", modifier:"none"},
 {name:"Health Boost Potion", cost:300, hboost:30, turns:2, type:"hboost", enchantment:"none", modifier:"none"}*/,
 { name: "Small Mana Potion", cost: 35, mana: 8, type: "mana", enchantment: "none", modifier: "none" },
-{ name: "Mana Potion", cost: 75, mana: 15, type: "mana", enchantment: "none", modifier: "none" },
+{ name: "Mana Potion", cost: 80, mana: 20, type: "mana", enchantment: "none", modifier: "none" },
 { name: "Large Mana Potion", cost: 175, mana: 50, type: "mana", enchantment: "none", modifier: "none" }];
 
 
