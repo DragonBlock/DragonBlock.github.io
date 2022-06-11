@@ -116,12 +116,12 @@ var pUseSpell = {};
 //#region Game Setup
 // Define all weapons and armor
 var Weapons = [{ name: "Wooden Sword", type: "Two-Handed", damage: 2, speed: 2, enchantment: "none", modifier: "none", durability: 100, cost: 50 },
-{ name: "Broken Sword", type: "Two-Handed", damage: 3, enchantment: "none", speed: 3, modifier: "none", durability: 100, cost: 100 },
-{ name: "Rusty Sword", type: "Two-Handed", damage: 4, enchantment: "none", speed: 1, modifier: "none", durability: 100, cost: 150 }];
+{ name: "Broken Sword", type: "Two-Handed", damage: 3, enchantment: "none", speed: 3, modifier: "none", durability: 100, cost: 115 },
+{ name: "Rusty Sword", type: "Two-Handed", damage: 4, enchantment: "none", speed: 1, modifier: "none", durability: 100, cost: 250 }];
 
-var Armor = [{ name: "Leather Armor", weight: "None", defense: 2, enchantment: "none", modifier: "none", durability: 100, cost: 300 },
-{ name: "Hardened Leather Armor", weight: "Light", defense: 3, enchantment: "none", modifier: "none", durability: 100, cost: 500 },
-{ name: "Chainmail Armor", weight: "Medium", defense: 5, enchantment: "none", modifier: "none", durability: 100, cost: 700 }];
+var Armor = [{ name: "Leather Armor", weight: "None", defense: 2, enchantment: "none", modifier: "none", durability: 100, cost: 250 },
+{ name: "Hardened Leather Armor", weight: "Light", defense: 3, enchantment: "none", modifier: "none", durability: 100, cost: 450 },
+{ name: "Chainmail Armor", weight: "Medium", defense: 5, enchantment: "none", modifier: "none", durability: 100, cost: 650 }];
 
 // Define Magic, Status effects, and items
 var Magic = [{ name: "Flame Shot", type: "status", damage: 5, statusEffect: "Burned", manaCost: 5, cost:150, desc:"Has a chance to burn the enemy it hits.", effectChance: 5 },
